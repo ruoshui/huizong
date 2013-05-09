@@ -51,8 +51,8 @@ public class GuideViewActivity extends Activity {
 			mImageView = new ImageView(GuideViewActivity.this);
 			mImageView.setLayoutParams(new LayoutParams(20, 20));
 			LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-					LinearLayout.LayoutParams.WRAP_CONTENT,
-					LinearLayout.LayoutParams.WRAP_CONTENT);
+					LayoutParams.WRAP_CONTENT,
+					LayoutParams.WRAP_CONTENT);
 			lp.setMargins(20, 0, 20, 20);
 			mImageView.setLayoutParams(lp);
 
@@ -72,6 +72,7 @@ public class GuideViewActivity extends Activity {
 		setContentView(mView);
 		mViewPager.setAdapter(new MyPagerAdapter());
 		mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
+			@Override
 			public void onPageSelected(int arg0) {
 				for (int i = 0; i < mImageViews.length; i++) {
 					if (i == arg0) {

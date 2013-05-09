@@ -49,10 +49,18 @@ public class Location extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		PersonDbUtils.init(
-				getApplicationContext(),
-				getSharedPreferences(PersonConstant.USER_AGENT_INFO,
-						Context.MODE_PRIVATE));
+		
+		if (!PersonDbUtils.getValue(PersonConstant.USER_FIRST_OPEN, false)) {
+			startActivityForResult(
+					(new Intent().setClass(Location.this, GuideViewActivity.class)),
+					PersonConstant.ETONG_RESULTCODE_INDEX);
+			
+		}
+		
+//		PersonDbUtils.init(
+//				getApplicationContext(),
+//				getSharedPreferences(PersonConstant.USER_AGENT_INFO,
+//						Context.MODE_PRIVATE));
 		super.onCreate(savedInstanceState);
 		mBMapMan = new BMapManager(getApplication());
 		mBMapMan.init(PersonConstant.BAIDU_MAP_KEY, null);
