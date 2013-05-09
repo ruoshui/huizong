@@ -16,7 +16,7 @@ public class PersonBaseActivity extends Base implements Serializable {
 	}
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// ÅÐ¶ÏÊÇ·ñµÇÂ¼
 
